@@ -11,10 +11,9 @@ const mongoURI = process.env.MONGODB_URI
 app.use(express.urlencoded({ extended: false }))
 
 
-app.get('/', function(req, res){
-  res.send('ello')
+app.get('/new', function(req, res){
+	res.render('./store/new.ejs')
 })
-
 
 mongoose.connect(mongoURI, { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
