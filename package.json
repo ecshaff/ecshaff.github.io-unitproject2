@@ -1,0 +1,27 @@
+{
+  "name": "ecshaff.github.io-unitproject2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecshaff/ecshaff.github.io-unitproject2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ecshaff/ecshaff.github.io-unitproject2/issues"
+  },
+  "homepage": "https://github.com/ecshaff/ecshaff.github.io-unitproject2#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.5"
+  }
+}
