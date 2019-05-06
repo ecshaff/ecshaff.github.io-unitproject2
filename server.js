@@ -1,15 +1,17 @@
-const express = require('express')
-const mongoose = require('mongoose')
+let express = require('express')
+let bodyParser = require ( 'body-parser' );
+let mongoose = require('mongoose')
 require('dotenv').config()
-const app = express()
+let app = express()
 let Store = require('./models/store.js')
+let storeController = require ( './controllers/store' )
+app.use('/store', storeController)
 
-const PORT = process.env.PORT
-const mongoURI = process.env.MONGODB_URI
+let PORT = process.env.PORT
+let mongoURI = process.env.MONGODB_URI
 
 
 app.use(express.urlencoded({ extended: false }))
-
 
 app.get('/new', function(req, res){
 	res.render('./store/new.ejs')

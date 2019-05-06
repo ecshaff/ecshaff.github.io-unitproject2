@@ -22,6 +22,8 @@
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-generator": "^4.16.1",
+    "handlebars": "^4.1.2",
     "mongoose": "^5.5.5"
   }
 }
