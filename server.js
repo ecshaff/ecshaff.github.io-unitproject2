@@ -164,5 +164,5 @@ app.post('/store/', function(req, res){
 
 
 
-app.listen(PORT, () => console.log('auth happening on port', PORT))
 
+app.listen(process.env.PORT || 3000);

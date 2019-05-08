@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecshaff/ecshaff.github.io-unitproject2.git"
+    "url": "git+https://github.com/ecshaff/ecshaff.unitp2.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ecshaff/ecshaff.github.io-unitproject2/issues"
+    "url": "https://github.com/ecshaff/ecshaff.unit2/issues"
   },
-  "homepage": "https://github.com/ecshaff/ecshaff.github.io-unitproject2#readme",
+  "homepage": "https://github.com/ecshaff/ecshaff.unit2#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "connect-flash": "^0.1.1",
