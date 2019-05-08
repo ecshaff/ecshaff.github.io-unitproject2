@@ -4,6 +4,7 @@ let mongoose = require('mongoose')
 require('dotenv').config()
 let app = express()
 let Store = require('./models/store')
+let Cart = require('./models/cart')
 let Home = require('./models/home')
 let methodOverride = require('method-override')
 let csrf = require('csurf')
@@ -12,6 +13,7 @@ let session = require('express-session')
 let passport = require('passport')
 let flash = require('connect-flash')
 let validator =require('express-validator')
+let MongoStore =require('connect-mongo')(session)
 
 let PORT = process.env.PORT
 let mongoURI = process.env.MONGODB_URI
@@ -27,18 +29,36 @@ app.use(express.urlencoded({ extended: false }))
 app.use(validator())
 app.use( bodyParser.json() );
 app.use( express.static ( 'public' ) );
-app.use(session({secret:'mysecret', resave: false, saveUninitialized: false}))
+
+app.use(session(
+{secret:'mysecret', 
+resave: false,
+saveUninitialized: false,
+store: new MongoStore({mongooseConnection: mongoose.connection}),
+cookie: {maxAge: 90 * 60 * 1000}
+}))
+
 app.use(csrfProtection)
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
-
+app.use(function(req, res, next){
+	res.locals.login = req.isAuthenticated();
+	res.locals.session = req.session
+	next()
+})
 app.use(csrf());
 app.use(function (req, res, next) {
 res.cookie('XSRF-TOKEN', req.csrfToken());
 res.locals.csrftoken = req.csrfToken();
 next();
 });
+
+app.get('/profile', isLoggedIn, function(req, res, next){
+	res.render('./user/profile.ejs')
+
+})
+
 
 app.get('/store/new', function(req, res){
 	res.render('./store/new.ejs')
@@ -81,9 +101,34 @@ failureRedirect: '/signin',
 failureFlash: true
 }))
 
-app.get('/profile', function(req, res, next){
-	res.render('./user/profile.ejs')
+app.get('/logout', function (req, res, next){
+	req.logout()
+	res.redirect('/signin')
+})
 
+app.get('/add-to-basket/:id', function(req, res){
+	let storeId = req.params.id
+	let cart = new Cart(req.session.cart ? req.session.cart: {items: {}})
+
+	Store.findById(storeId, function(error, store){
+		if (error) {
+			return res.redirect('/')
+		}
+		 cart.add(store, store.id)
+	     req.session.cart = cart
+	     console.log(req.session.cart)
+	     res.redirect('/store')
+	})
+
+})
+
+app.get('/basket', function(req, res, next){
+	if (!req.session.cart){
+		return res.render('./store/cart.ejs', 
+			{store: null})
+	}
+	let cart = new Cart(req.session.cart)
+	res.render('./store/cart.ejs', {store: cart.generateArray(), totalPrice: cart.totalPrice})
 })
 
 app.get('/', function(req, res){
@@ -158,6 +203,14 @@ app.post('/store/', function(req, res){
 	   })
 })
 
+
+
+function isLoggedIn(req, res, next){
+	if (req.isAuthenticated()){
+		return next()
+	}
+	res.redirect('/signin')
+}
 
 
 

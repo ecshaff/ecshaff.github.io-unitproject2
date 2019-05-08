@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <nav>
+      <% include ../partials/header.ejs %>
+    </nav>
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+    <div class="thumbnail">
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge">2</span>
+          <strong>Title</strong>
+          <span class="label label-success">$12</span>
+          <div class="btn-group">
+            <button class="btn btn-primary btn-xs dropdown-toggle" type="button">Action <span class="caret"></span></button>
+            <li><a href="#">Reduce by 1</a></li>
+            <li><a href="#">Remove All</a></li>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3">
+    <strong>Total:</strong>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3">
+ <button type="button" class="btn btn-success">Checkout</button>   
+ </div>
+  </div>
+
+  <div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-3">
+    <h2>Cart Empty</h2>
+    </div>
+  </div>
+    
+<footer>
+   <nav>
+      <% include ../partials/footer.ejs %>
+    </nav>
+</footer>
+
+  </body>
+</html>

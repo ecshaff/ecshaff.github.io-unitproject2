@@ -5,26 +5,51 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
-  <% home.forEach( function (home) { %>
-  <body background="<%= home.backgroundImg %>">
-    <% }); %>
+ 
+  <body class="background">
+   
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-     <nav>
-      <% include ../partials/header.ejs %>
-    </nav>
-    <h1>WELCOME TO</h1>
-<% home.forEach( function (home) { %>
-    <h1><%=home.title%></h1>
-      <% }); %>
-    <h1><a href="#">ENTER</a></h1>
+   
+    <div class="container">
+    
+    <h1><a class="enter" href="/portfolio">ENTER SITE</a></h1>
 
-      <a href="/home/<%=home.id%>/edit"><button type="button" name="button" class="edit-button">Edit</button></a>
-<footer>
-   <nav>
-      <% include ../partials/footer.ejs %>
-    </nav>
-</footer>
+      
+    </div>
+
+<style type="text/css">
+ 
+
+
+
+  .enter{
+    margin-top: 20%;
+    border: solid white 1px;
+     color: rgba(255,255,255,.5);
+   
+    display: flex;
+  justify-content: center
+
+  }
+
+  .enter:hover{
+     color: red;
+  }
+
+  .background{
+    background-image: url("https://i.imgur.com/ST4Fyvc.jpg");
+    background-size: cover;
+    background-position: center;
+  height: 30%;
+  width: 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 100%;
+
+  
+  }
+
+</style>
 
   </body>
 </html>
