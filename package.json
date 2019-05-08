@@ -11,6 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/ecshaff/ecshaff.unitp2.git"
   },
+    "engines": {
+    "node": ">= 6.9.4",
+    "npm": ">= 4.4.0"
+  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
