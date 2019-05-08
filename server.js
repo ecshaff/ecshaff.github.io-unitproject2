@@ -33,6 +33,13 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(csrf());
+app.use(function (req, res, next) {
+res.cookie('XSRF-TOKEN', req.csrfToken());
+res.locals.csrftoken = req.csrfToken();
+next();
+});
+
 app.get('/store/new', function(req, res){
 	res.render('./store/new.ejs')
 })
@@ -54,9 +61,23 @@ app.get('/signup', function(req, res, next){
 	let messages = req.flash('error')
 	res.render('./user/signup.ejs', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0})
 })
-app.post('/user/signup', passport.authenticate('local.signup', {
+
+app.get('/signin', function(req, res, next){
+	let messages = req.flash('error')
+	res.render('./user/signin.ejs', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0})
+
+})
+
+app.post('/signup', passport.authenticate('local.signup', {
 successRedirect: '/profile',
 failureRedirect: '/signup',
+failureFlash: true
+}))
+
+
+app.post('/signin', passport.authenticate('local.signin', {
+successRedirect: '/profile',
+failureRedirect: '/signin',
 failureFlash: true
 }))
 
@@ -65,7 +86,7 @@ app.get('/profile', function(req, res, next){
 
 })
 
-app.get('/home/', function(req, res){
+app.get('/', function(req, res){
 	Store.find({}, function(error, allHome){
 		res.render('./homepage/index.ejs', {
 			home: allHome
@@ -140,14 +161,6 @@ app.post('/store/', function(req, res){
 
 
 
-
-
-
-
-
-// controller
-// let storeController = require ( './controllers/store' )
-// app.use('/store', storeController)
 
 
 
