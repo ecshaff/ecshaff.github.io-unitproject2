@@ -3,30 +3,35 @@
   <head>
   </head>
   <body>
+     
     
     <div class="container">
-          <form class="edit" action="/" method="POST">
-            <label for="img">Image: </label>
-            <input type="text" name="img" value="">
+          <form  action="/store" method="POST">
             
-            <label for="name">Name: </label>
-            <input type="text" name="name" value="" required>
+           img: <input type="text" name="img"/><br/>
+            
            
-            <label for="description">Description: </label>
-            <input type="textarea" name="description" value="">
+            name: <input type="text" name="name"/><br/>
            
-            <label for="price">Price: </label>
-            <input type="number" name="price" min="0" step="1" value="0">
            
-            <label for="qty">Quantity: </label>
-            <input type="number" name="qty"  pattern="[0-5]*" min="0" value="0"><br>
+            des: <input type="textarea" name="description" /><br/>
+           
+           
+            price: <input type="number" name="price" min="0" step="1" value="0"/><br/>
+           
+           
+            qty: <input type="number" name="qty"  pattern="[0-5]*" min="0" value="0"><br>
 
-             <label for="about">About: </label>
-            <input type="textarea" name="about" value="">
+            
+            about: <input type="textarea" name="about" value=""><br/>
            
-            <input type="submit" name="submit" value="submit" class="edit-button">
+            <input type="submit" name="" value="submit">
           </form>
     </div>
-   
+   <footer>
+   <nav>
+      <% include ../partials/footer.ejs %>
+    </nav>
+</footer>
   </body>
 </html>

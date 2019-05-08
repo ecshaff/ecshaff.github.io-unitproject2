@@ -4,7 +4,7 @@ let storeSchema = new Schema({
 
 img : String,
 
-name : { type : String, required: [true] },
+name : String,
 
 description : String,
 

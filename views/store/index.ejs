@@ -2,6 +2,8 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
   <body>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -11,21 +13,43 @@
     </nav>
 
     <div class="container">
-        
-       <h1>SHOP</h1>
-       <ul class="list-group">
-       <img src="<%=store.img%>"/>
-       <li><%= store.title %></li>
-       <li><%= store.name %> </li>
-       <li>$<%= store.price %> </li>
-     </ul>
+     <h1>SHOP</h1>
+   
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+     
+
+      <div class="caption">
+         <% for(let i = 0; i < store.length; i++){ %>
+
+         
+        <h3><%= store[i].title %></h3>
+        <img src="<%= store[i].img %>"/>
+        <p> Artist: <%= store[i].name %> </p>
+        <div class="clearfix">
+          <div class="price"> $ <%= store[i].price%></div>
+
+        <p><a href="#" class="btn btn-default" role="button">Add To Basket</a> <a href="/store/<%=store[i].id%>" class="btn btn-default" role="button">View</a></p> 
+       <% } %>
+     </div>
+      </div>
     </div>
+  </div>
+</div>
+</div>
    <!-- <ul>
      <li><a href="/portfolio">PORTFOLIO</a></li>
      <li><a href="/About">ABOUT</a></li>
      <li><a href="/shop">SHOP</a></li>
    </ul> -->
-
+<footer>
+   <nav>
+      <% include ../partials/footer.ejs %>
+    </nav>
+</footer>
 
   </body>
 </html>
