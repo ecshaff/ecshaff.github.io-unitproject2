@@ -165,6 +165,9 @@ app.post('/home/', function(req, res){
 	   })
 })
 
+app.get('/portfolio', function(req, res, next){
+	res.render('./portfolio/index.ejs')
+})
 
 app.get('/store/:id', function(req, res){
 	Store.findById(req.params.id, function(error, foundStore){

@@ -11,11 +11,13 @@
      <nav>
       <% include ../partials/header.ejs %>
     </nav>
+    <% if (store) { %> 
+  }
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-    <div class="thumbnail">
-    <div class="container">
+   
       <ul class="list-group">
+        <% each(products)
         <li class="list-group-item">
           <span class="badge">2</span>
           <strong>Title</strong>
@@ -27,8 +29,6 @@
           </div>
         </li>
       </ul>
-    </div>
-  </div>
 </div>
 </div>
 
