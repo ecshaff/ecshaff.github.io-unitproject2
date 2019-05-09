@@ -10,6 +10,7 @@ let methodOverride = require('method-override')
 let csrf = require('csurf')
 let csrfProtection = csrf()
 let session = require('express-session')
+let cookieParser = require('cookie-parser');
 let passport = require('passport')
 let flash = require('connect-flash')
 let validator =require('express-validator')
