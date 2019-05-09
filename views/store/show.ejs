@@ -20,7 +20,9 @@
           <div class="price"> $ <%= store.price%></div>
               
         <form action="/store/<%=store.id%>?_method=DELETE" method="POST">
-            <button class="delete-button">DELETE</button>
+            <input type="submit" name="DELETE">
+
+             <a href="/store/<%=store.id;%>/edit">Edit</a>
 
           </div>
       </div>

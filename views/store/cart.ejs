@@ -11,6 +11,7 @@
      <nav>
       <% include ../partials/header.ejs %>
     </nav>
+    <h1>Your Basket</h1>
    <div class="container">
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
@@ -23,15 +24,16 @@
           <span class="label label-success">$<%= store[i].price %></span>
           <div class="btn-group">
             <button class="btn btn-primary btn-xs dropdown-toggle" type="button">Action <span class="caret"></span></button>
-            <li><a href="#">Reduce by 1</a></li>
-            <li><a href="#">Remove All</a></li>
+           
           </div>
         </li>
         <%}%>
+         <li><a href="#">Reduce by 1</a></li>
+            <li><a href="#">Remove All</a></li>
       </ul>
 </div>
 </div>
-<div class="container">
+<div class="container1">
 <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3">
     <strong>Total: $<%= (totalPrice) %></strong>
@@ -39,15 +41,11 @@
   </div>
   <div class="row">
   <div class="col-sm-6 col-md-6 col-md-offset-3">
- <button type="button" class="btn btn-success">Checkout</button>   
+ <button type="button" id="btn1" class="btn">Checkout</button>   
  </div>
   </div>
 
-  <div class="row">
-  <div class="col-sm-6 col-md-6 col-md-offset-3">
-    <h2>Cart Empty</h2>
-    </div>
-  </div>
+  
     </div>
 </div>
 
@@ -56,10 +54,32 @@
 
 <style type="text/css">
   .container{
+    padding-top: 50px;
    
   padding-left: 30%;
   }
+  .container1{
+    padding-left: 8%; 
+  }
 
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  padding-top: 15px;
+}
+
+
+strong{
+  margin: auto 0;}
+
+  .btn{
+    background-color: pink;
+    border: none;
+  }
 </style>
 
 

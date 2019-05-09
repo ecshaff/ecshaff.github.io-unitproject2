@@ -193,12 +193,11 @@ app.put('/store/:id/', function(req, res){
 })
 
 
-app.delete ( 'store/:id' , function( req , res ) {
+app.delete ( '/store/:id' , function( req , res ) {
   Store.findByIdAndRemove( req.params.id , function( error , store) {
-    if ( error ) { console.log( error ); }
-    res.redirect ( '/store' );
-  });
-});
+   	 res.redirect ( '/store' );
+  })
+})
 
 app.post('/store/', function(req, res){
 	   Store.create(req.body, function(error, createdStore){

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+       <h1>Edit Listing</h1>
+       <form action="/store/<%=store.id%>?_method=PUT" method="POST">
+           Title: <input type="text" name="title" value="<%=store.title%>"/><br/>
+
+           Image: <input type="text" name="img" value="<%=store.img%>"/><br/>
+            Artist: <input type="text" name="name" value="<%=store.name%>"/><br/>
+             Price: <input type="text" name="price" value="<%=store.price%>"/><br/>
+
+          
+           <input type="submit" name="" value="Sumbit Changes">
+       </form>
+    </body>
+</html>
