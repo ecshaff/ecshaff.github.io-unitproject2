@@ -177,7 +177,7 @@ app.get('/store/:id', function(req, res){
 	})
 })
 
-app.get('/store/:id/edit', function(req, res){
+app.get('/store/:id/edit', isLoggedIn, function(req, res){
 	Store.findById(req.params.id, function(error, foundStore){
 		res.render('./store/edit.ejs', {
 			store: foundStore

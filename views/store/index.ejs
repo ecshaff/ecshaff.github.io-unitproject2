@@ -27,14 +27,15 @@
         
          <% for(let i = 0; i < store.length; i++){ %>
 
-         
+         <div class="text">
         <h3><%= store[i].title %></h3>
         <img src="<%= store[i].img %>"/>
         <p> Artist: <%= store[i].name %> </p>
         <div class="clearfix">
           <div class="price"> $ <%= store[i].price%></div>
+        </div>
 
-        <p><a href="/add-to-basket/<%=store[i].id%>" class="btn btn-default" role="button">Add To Basket</a> <a href="/store/<%=store[i].id%>" class="btn btn-default" role="button">View</a></p> 
+        <p><a href="/add-to-basket/<%=store[i].id%>" class="btn" role="button">Add To Basket</a> <a href="/store/<%=store[i].id%>" class="btn" role="button">View</a></p> 
        <% } %>
      </div>
       </div>
@@ -49,11 +50,32 @@
      <li><a href="/About">ABOUT</a></li>
      <li><a href="/shop">SHOP</a></li>
    </ul> -->
-<footer>
-   <nav>
-      <% include ../partials/footer.ejs %>
-    </nav>
-</footer>
+
 
   </body>
 </html>
+
+<style type="text/css">
+  
+
+.text{
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.btn{
+  margin-top: 12px;
+  border: solid black 1px;
+}
+.btn:hover{
+  background: rgba(0,150,150,.3);
+}
+
+</style>
+
+
