@@ -7,8 +7,8 @@ let Store = require('./models/store')
 let Cart = require('./models/cart')
 let Home = require('./models/home')
 let methodOverride = require('method-override')
-let csrf = require('csurf')
-let csrfProtection = csrf()
+// let csrf = require('csurf')
+// let csrfProtection = csrf()
 let session = require('express-session')
 let cookieParser = require('cookie-parser');
 let passport = require('passport')
@@ -39,7 +39,7 @@ store: new MongoStore({mongooseConnection: mongoose.connection}),
 cookie: {maxAge: 90 * 60 * 1000}
 }))
 
-app.use(csrfProtection)
+// app.use(csrfProtection)
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
@@ -48,12 +48,12 @@ app.use(function(req, res, next){
 	res.locals.session = req.session
 	next()
 })
-app.use(csrf());
-app.use(function (req, res, next) {
-res.cookie('XSRF-TOKEN', req.csrfToken());
-res.locals.csrftoken = req.csrfToken();
-next();
-});
+// app.use(csrf());
+// app.use(function (req, res, next) {
+// res.cookie('XSRF-TOKEN', req.csrfToken());
+// res.locals.csrftoken = req.csrfToken();
+// next();
+// });
 
 app.get('/profile', isLoggedIn, function(req, res, next){
 	res.render('./user/profile.ejs')
@@ -80,14 +80,13 @@ app.get('/store/', function(req, res){
 
 app.get('/signup', function(req, res, next){
 	let messages = req.flash('error')
-	res.render('./user/signup.ejs', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0})
-})
+	res.render('./user/signup.ejs' /*{csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0}*/)})
+
 
 app.get('/signin', function(req, res, next){
 	let messages = req.flash('error')
-	res.render('./user/signin.ejs', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0})
+	res.render('./user/signin.ejs' /*{csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0}*/)})
 
-})
 
 app.post('/signup', passport.authenticate('local.signup', {
 successRedirect: '/profile',
