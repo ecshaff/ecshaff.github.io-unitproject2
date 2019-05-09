@@ -123,13 +123,12 @@ app.get('/add-to-basket/:id', function(req, res){
 })
 
 app.get('/basket', function(req, res, next){
-	res.send('cart')
 	// if (!req.session.cart){
 	// 	return res.render('./store/cart.ejs', 
 	// 		{store: null})
 	// }
 	// let cart = new Cart(req.session.cart)
-	// res.render('./store/cart.ejs', {store: cart.generateArray(), totalPrice: cart.totalPrice})
+	res.render('./store/cart.ejs'/*, {store: cart.generateArray(), totalPrice: cart.totalPrice}*/)
 })
 
 app.get('/', function(req, res){
