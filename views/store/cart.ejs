@@ -18,7 +18,7 @@
       <ul class="list-group">
           <% for(let i=0; i < store.length; i++){ %>
         <li class="list-group-item">
-          <span class="badge"> <%= store[i].qty %> </span>
+          <span class="badge"> <%= store.qty %> </span>
           <strong><%= store[i].title %> </strong>
           <span class="label label-success">$<%= store[i].price %></span>
           <div class="btn-group">
@@ -58,7 +58,6 @@
   .container{
    
   padding-left: 30%;
-  padding-top: 40px;
   }
 
 </style>
