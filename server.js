@@ -15,6 +15,7 @@ let flash = require('connect-flash')
 let validator =require('express-validator')
 let MongoStore =require('connect-mongo')(session)
 
+
 let PORT = process.env.PORT
 let mongoURI = process.env.MONGODB_URI
 
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(validator())
 app.use( bodyParser.json() );
 app.use( express.static ( 'public' ) );
+
 
 app.use(session(
 {secret:'mysecret', 
@@ -61,7 +63,7 @@ app.get('/profile', isLoggedIn, function(req, res, next){
 
 
 app.get('/store/new', function(req, res){
-	res.render('./store/new.ejs')
+	res.render('./store/new.ejs', {csrfToken: req.csrfToken()})
 })
 
 
